@@ -29,6 +29,3 @@ def checkout(skus):
         total -= free_Bs * pricing["B"]
 
     return total if skus_list else 0  # returns total amount unless empy
-
-
-
