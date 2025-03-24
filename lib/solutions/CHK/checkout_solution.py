@@ -24,8 +24,11 @@ def checkout(skus):
     total -= (((B_count//2)) * 15)
 
     E_count = skus_list.count("E")
-    total -= (((E_count//3)) * 40)
+    if E_count >= 2:
+        free_Bs = E_count//2 
+        total -= free_Bs * pricing["B"]
 
     return total if skus_list else 0  # returns total amount unless empy
+
 
 
