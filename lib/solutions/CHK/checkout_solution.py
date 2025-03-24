@@ -18,11 +18,6 @@ def checkout(skus):
     total -= (((A_count//3)%3) * 20)
 
     B_count = skus_list.count("B")
-    total -= (((B_count//2)%2) * 15)
+    total -= (((B_count//2)) * 15)
 
-    return total if skus_list else -1 # returns total amount unless empy
-
-
-
-
-
+    return total if skus_list else 0  # returns total amount unless empy
