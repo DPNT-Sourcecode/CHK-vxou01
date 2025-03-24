@@ -16,8 +16,10 @@ def checkout(skus):
     # subtract 'discount'
     A_count = skus_list.count("A")
     if A_count >= 5:          
-        total -= (((A_count//5)) * 50)
-    else:
+        total -= (A_count // 5) * 50
+        A_count %= 5 #update remaining A count
+    
+    if A_count >= 3:
         total -= (((A_count//3)) * 20)
 
     B_count = skus_list.count("B")
