@@ -15,10 +15,11 @@ def checkout(skus):
     
     # subtract 'discount'
     A_count = skus_list.count("A")
-    if A_count >= 5:
-        total -= (((A_count//5)) * 30)
+    if A_count >= 5:          
+        total -= (((A_count//5)) * 50)
     else:
         total -= (((A_count//3)) * 20)
+
 
     B_count = skus_list.count("B")
     total -= (((B_count//2)) * 15)
@@ -27,4 +28,5 @@ def checkout(skus):
     total -= (((D_count//3)) * 40)
 
     return total if skus_list else 0  # returns total amount unless empy
+
 
