@@ -1,13 +1,20 @@
-
+from collections import Counter
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    pricing = {"A": 50, "B": 30, "C": 20, "D": 15} 
-    skus = skus.split(",")
-    total = 0
-    for sku in skus:
+    pricing = {"A": 50, "B": 30, "C": 20, "D": 15} # keeps track of individual sku pricing
+    skus = skus.split(",") # split input into individual sku
+    total = 0 
+
+    skus_counts = Counter(skus)
+    
+    for sku, count in skus_counts.items():
+        if sku == "A" and count == 3:
+            total += 130
         total += pricing[sku]
+    
     return total
+
 
 
