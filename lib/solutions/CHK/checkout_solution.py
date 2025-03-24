@@ -8,11 +8,7 @@ def checkout(skus):
     total = 0 
     
     for sku in skus:
-        # if sku == "A" and count == 3:
-        #     total += 130
-        # elif sku == "B" and count == 2:
-        #     total += 45
-        if sku not in pricing:
+        if sku not in pricing: # case: illegal input
             return -1
         else:
             total += pricing[sku]
@@ -20,8 +16,11 @@ def checkout(skus):
     # subtract 'discount'
     A_count = skus.count("A")
     total -= (((A_count//3)%3) * 20)
-    return total
 
+    B_count = skus.count("B")
+    total -= (((B_count//2)%2) * 15)
+
+    return total # returns total amount
 
 
 
