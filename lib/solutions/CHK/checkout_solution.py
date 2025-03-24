@@ -21,8 +21,9 @@ def checkout(skus):
     
     # subtract 'discount'
     A_count = skus.count("A")
-    total -= (A_count%3 * -20)
+    total -= ((A_count//3)%3 * -20)
     return total
+
 
 
 
