@@ -14,8 +14,11 @@ def checkout(skus):
             total += 130
         elif sku == "B" and count == 2:
             total += 45
+        elif sku not in pricing:
+            return -1
         else:
             total += pricing[sku]
     
     return total
+
 
