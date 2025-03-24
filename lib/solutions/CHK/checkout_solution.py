@@ -12,9 +12,10 @@ def checkout(skus):
     for sku, count in skus_counts.items():
         if sku == "A" and count == 3:
             total += 130
-        total += pricing[sku]
+        elif sku == "B" and count == 2:
+            total += 45
+        else:
+            total += pricing[sku]
     
     return total
-
-
 
