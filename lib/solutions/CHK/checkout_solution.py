@@ -20,14 +20,14 @@ def checkout(skus):
         A_count %= 5 #update remaining A count
     
     if A_count >= 3:
-        total -= (((A_count//3)) * 20)
+        total -= (A_count // 3) * 20
 
     B_count = skus_list.count("B")
-    total -= (((B_count//2)) * 15)
+    total -= (B_count // 2) * 15
 
     E_count = skus_list.count("E")
     if E_count >= 2:
-        free_Bs = E_count//2 
+        free_Bs = E_count // 2 
         if B_count < free_Bs:
             total -= B_count * pricing["B"]
         else:
@@ -35,3 +35,4 @@ def checkout(skus):
 
 
     return total if skus_list else 0  # returns total amount unless empy
+
