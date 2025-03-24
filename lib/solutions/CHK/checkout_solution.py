@@ -13,8 +13,12 @@ def checkout(skus):
         else:
             total += pricing[sku]
     
-    # subtract A 'discount'
+    # subtract discounts
     A_count = skus_list.count("A")
+    B_count = skus_list.count("B")
+    E_count = skus_list.count("E")
+
+    # subtract A 'discount'
     if A_count >= 5:          
         total -= (A_count // 5) * 50
         A_count %= 5 #update remaining A count
@@ -22,13 +26,7 @@ def checkout(skus):
     if A_count >= 3:
         total -= (A_count // 3) * 20
 
-    # subtract B 'discount'
-    if E_count < 2: # free B discount will be apllied instead
-        B_count = skus_list.count("B")
-        total -= (B_count // 2) * 15
-
     # subtract E 'discount'
-    E_count = skus_list.count("E")
     if E_count >= 2:
         free_Bs = E_count // 2 
         if B_count < free_Bs:
@@ -36,6 +34,9 @@ def checkout(skus):
         else:
             total -= free_Bs * pricing["B"]
 
+    # subtract B 'discount'
+    if E_count < 2: # free B discount will be apllied instead
+        total -= (B_count // 2) * 15
 
     return total if skus_list else 0  # returns total amount unless empy
 
