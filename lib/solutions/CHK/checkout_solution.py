@@ -10,15 +10,19 @@ def checkout(skus):
     skus_counts = Counter(skus)
     
     for sku, count in skus_counts.items():
-        if sku == "A" and count == 3:
-            total += 130
-        elif sku == "B" and count == 2:
-            total += 45
-        elif sku not in pricing:
+        # if sku == "A" and count == 3:
+        #     total += 130
+        # elif sku == "B" and count == 2:
+        #     total += 45
+        if sku not in pricing:
             return -1
         else:
             total += pricing[sku]
     
+    # subtract 'discount'
+    A_count = skus.count("A")
+    total -= (A_count%3 * -20)
     return total
+
 
 
