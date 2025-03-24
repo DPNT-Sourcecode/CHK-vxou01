@@ -29,15 +29,23 @@ def checkout(skus):
     # subtract E 'discount'
     if E_count >= 2:
         free_Bs = E_count // 2 
+        B_count -= free_Bs
         if B_count < free_Bs:
             total -= B_count * pricing["B"]
         else:
             total -= free_Bs * pricing["B"]
 
     # subtract B 'discount'
-    if E_count < 2: # free B discount will be apllied instead
-        total -= (B_count // 2) * 15
+    total -= (B_count // 2) * 15
 
     return total if skus_list else 0  # returns total amount unless empy
+
+
+#A B C D E CBAABCABBAAAEEAA
+# A: 9 == 380
+# B: 5 == 90
+# C: 3 == 60
+#D : 1 == 15
+# E: 3 == 120
 
 
