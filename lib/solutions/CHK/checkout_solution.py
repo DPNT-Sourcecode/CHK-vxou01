@@ -3,7 +3,7 @@ from collections import Counter
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    pricing = {"A": 50, "B": 30, "C": 20, "D": 15} # keeps track of individual sku pricing
+    pricing = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40} # keeps track of individual sku pricing
     skus_list = list(skus) # convert string to list
     total = 0 
     
@@ -15,9 +15,13 @@ def checkout(skus):
     
     # subtract 'discount'
     A_count = skus_list.count("A")
-    total -= (((A_count//3)%3) * 20)
+    total -= (((A_count//5)) * 30)
+    total -= (((A_count//3)) * 20)
 
     B_count = skus_list.count("B")
     total -= (((B_count//2)) * 15)
+
+    D_count = skus_list.count("D")
+    total -= (((D_count//3)) * 40)
 
     return total if skus_list else 0  # returns total amount unless empy
