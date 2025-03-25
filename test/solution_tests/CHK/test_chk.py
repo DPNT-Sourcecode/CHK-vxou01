@@ -42,11 +42,13 @@ class TestCHK():
         assert checkout_solution.checkout("RRRRRRQ") == 300
         assert checkout_solution.checkout("RRRRRRQQ") == 300
         assert checkout_solution.checkout("RRRRRRQQQ") == 330
-        assert checkout_solution.checkout("UUU") == 80
+        assert checkout_solution.checkout("UUU") == 120
         assert checkout_solution.checkout("UU") == 80
         assert checkout_solution.checkout("VVV") == 130
         assert checkout_solution.checkout("VV") == 90
         assert checkout_solution.checkout("VVVVV") == 220
+        assert checkout_solution.checkout("QQQ") == 80
+        assert checkout_solution.checkout("QQQQ") == 110
 
 
 
@@ -60,6 +62,7 @@ class TestCHK():
         
     #     with pytest.raises(ValueError, match="Input is out of range"):
     #         sum_solution.compute(101,2)
+
 
 
 
