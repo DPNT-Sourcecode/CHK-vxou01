@@ -63,7 +63,9 @@ def checkout(skus):
     group_skus = []
     for sku in group_discount_skus:
         group_skus.extend([sku] * skus_list.count(sku))
+    
     # sort group items by price (to discount highest priced sku)
+    group_skus.sort(key=lambda item: skus_list[item], reverse=True)
     # apply discount
 
 
@@ -141,3 +143,4 @@ def checkout(skus):
         total -= (V_count // 2) * 10
 
     return total if skus_list else 0  # returns total amount unless empy
+
