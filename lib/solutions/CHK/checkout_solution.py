@@ -48,6 +48,7 @@ def checkout(skus):
     F_count = skus_list.count("F")
     H_count = skus_list.count("H")
     K_count = skus_list.count("K")
+    M_count = skus_list.count("M")
     N_count = skus_list.count("N")
     P_count = skus_list.count("P")
     Q_count = skus_list.count("Q")
@@ -97,6 +98,20 @@ def checkout(skus):
     # subtract K 'discount' 2K for 150
     total -= (K_count // 2) * 10
 
+    # subtract N 'discount' 3N get one M free
+    if N_count >= 3:
+        free_Ms = N_count // 3 
+        
+        if M_count < free_Ms:
+            total -= M_count * pricing["M"]
+        else:
+            total -= free_Ms * pricing["M"]
+        
+        # subtract free_Ms 
+        if M_count > 0:
+            M_count -= free_Ms
+
     return total if skus_list else 0  # returns total amount unless empy
+
 
 
