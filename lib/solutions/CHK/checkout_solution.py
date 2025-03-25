@@ -75,15 +75,6 @@ def checkout(skus):
             Bs_to_subtract = min(free_Bs, B_count)
             total -= Bs_to_subtract * pricing["B"]
             B_count -= Bs_to_subtract
-        
-        # if B_count < free_Bs:
-        #     total -= B_count * pricing["B"]
-        # else:
-        #     total -= free_Bs * pricing["B"]
-        
-        # subtract free_Bs so the 2B for 45 discount can be used
-        if B_count > 0:
-            B_count -= free_Bs
 
     # subtract B 'discount' 2B for 45
     total -= (B_count // 2) * 15
@@ -140,3 +131,4 @@ def checkout(skus):
         total -= (V_count // 2) * 10
 
     return total if skus_list else 0  # returns total amount unless empy
+
