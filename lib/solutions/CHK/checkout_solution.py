@@ -27,6 +27,7 @@ def checkout(skus):
                "T": 20,
                "U": 40,
                "V": 50,
+               "W": 20,
                "X": 90,
                "Y": 10,
                "Z": 50} 
@@ -94,3 +95,4 @@ def checkout(skus):
         total -= (H_count // 5) * 5
 
     return total if skus_list else 0  # returns total amount unless empy
+
