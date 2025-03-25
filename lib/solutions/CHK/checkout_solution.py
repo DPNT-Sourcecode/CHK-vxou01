@@ -59,6 +59,13 @@ def checkout(skus):
     #group discount
     group_discount_skus = ["S", "T", "X", "Y", "Z"]
 
+    # count group items
+    group_skus = []
+    for sku in group_discount_skus:
+        group_skus.extend([sku] * skus_list.count(sku))
+    # sort group items by price (to discount highest priced sku)
+    # apply discount
+
 
 
     # subtract A 'discount' 5A for 200
