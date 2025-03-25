@@ -4,7 +4,7 @@ import pytest
 
 class TestCHK():
     def test_chk(self):
-        assert checkout_solution.checkout("ABCDEF") == 165
+        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 905
         assert checkout_solution.checkout("AAA") == 130
         assert checkout_solution.checkout("AAAAA") == 200
         assert checkout_solution.checkout("AAAAAA") == 250
@@ -25,6 +25,10 @@ class TestCHK():
         assert checkout_solution.checkout("FF") == 20
         assert checkout_solution.checkout("FFF") == 20
         assert checkout_solution.checkout("FFFFFF") == 40
+        assert checkout_solution.checkout("HHHHH") == 45
+        assert checkout_solution.checkout("HHHHHHHHHH") == 80
+        assert checkout_solution.checkout("HHHHHHHHHHHHHHH") == 125
+        assert checkout_solution.checkout("HHHHHHHHHHHH") == 100
 
 
 
@@ -36,3 +40,4 @@ class TestCHK():
         
     #     with pytest.raises(ValueError, match="Input is out of range"):
     #         sum_solution.compute(101,2)
+

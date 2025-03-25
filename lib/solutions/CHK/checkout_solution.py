@@ -85,20 +85,12 @@ def checkout(skus):
     total -= (F_count // 3) * 10
 
     # subtract H 'discount' 10H for 80
-    if A_count >= 5:          
-        total -= (A_count // 5) * 50
-        A_count %= 5 #update remaining A count to use 3A discount
+    if H_count >= 10:          
+        total -= (H_count // 10) * 20
+        H_count %= 10 #update remaining H count to use 5H discount
 
     # subtract H 'discount' 5H for 45
-    if A_count >= 3:
-        total -= (A_count // 3) * 20
+    if H_count >= 5:
+        total -= (H_count // 5) * 5
 
     return total if skus_list else 0  # returns total amount unless empy
-
-
-#A B C D E CBAABCABBAAAEEAA
-# A: 9 == 380
-# B: 5 == 90
-# C: 3 == 60
-#D : 1 == 15
-# E: 3 == 120
