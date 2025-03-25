@@ -111,7 +111,11 @@ def checkout(skus):
         if M_count > 0:
             M_count -= free_Ms
 
+    # subtract P 'discount' 5P for 200
+    total -= (P_count // 5) * 50
+
     return total if skus_list else 0  # returns total amount unless empy
+
 
 
 
