@@ -127,7 +127,7 @@ def checkout(skus):
         if Q_count > 0:
             Q_count -= free_Qs
 
-    # subtract Q 'discount' 3U for 80
+    # subtract Q 'discount' 3Q for 80
     total -= (Q_count // 3) * 10
 
     # subtract U 'discount' 4U for 3
@@ -143,10 +143,3 @@ def checkout(skus):
         total -= (V_count // 2) * 10
 
     return total if skus_list else 0  # returns total amount unless empy
-
-
-
-
-
-
-
