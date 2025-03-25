@@ -130,7 +130,17 @@ def checkout(skus):
     # subtract U 'discount' 3U for 2
     total -= (U_count // 3) * 40
 
+    # subtract V 'discount' 3A for 130
+    if V_count >= 3:          
+        total -= (V_count // 3) * 20
+        V_count %= 3 #update remaining A count to use 3A discount
+
+    # subtract V 'discount' 2A for 90
+    if V_count >= 2:
+        total -= (V_count // 2) * 10
+
     return total if skus_list else 0  # returns total amount unless empy
+
 
 
 
