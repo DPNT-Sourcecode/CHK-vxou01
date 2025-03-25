@@ -56,7 +56,7 @@ def checkout(skus):
     U_count = skus_list.count("U")
     V_count = skus_list.count("V")
     
-    #group discount
+    # group discount 3 for 45
     group_discount_skus = ["S", "T", "X", "Y", "Z"]
 
     # count group items
@@ -65,8 +65,12 @@ def checkout(skus):
         group_skus.extend([sku] * skus_list.count(sku))
     
     # sort group items by price (to discount highest priced sku)
-    group_skus.sort(key=lambda item: skus_list[item], reverse=True)
+    group_skus.sort(key=lambda item: pricing[item], reverse=True)
+    
     # apply discount
+    while len(group_skus) >= 3:
+        total -= sum(pricing[item] for item in group_skus[:3]) - 45
+        group_skus = group_skus[3:] # remove these 3 items from list
 
 
 
@@ -143,4 +147,5 @@ def checkout(skus):
         total -= (V_count // 2) * 10
 
     return total if skus_list else 0  # returns total amount unless empy
+
 
