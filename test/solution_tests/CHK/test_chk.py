@@ -29,6 +29,9 @@ class TestCHK():
         assert checkout_solution.checkout("HHHHHHHHHH") == 80
         assert checkout_solution.checkout("HHHHHHHHHHHHHHH") == 125
         assert checkout_solution.checkout("HHHHHHHHHHHH") == 100
+        assert checkout_solution.checkout("K") == 80
+        assert checkout_solution.checkout("KK") == 150
+        assert checkout_solution.checkout("KKK") == 230
 
 
 
@@ -40,5 +43,6 @@ class TestCHK():
         
     #     with pytest.raises(ValueError, match="Input is out of range"):
     #         sum_solution.compute(101,2)
+
 
 

@@ -94,5 +94,9 @@ def checkout(skus):
     if H_count >= 5:
         total -= (H_count // 5) * 5
 
+    # subtract K 'discount' 2K for 150
+    total -= (K_count // 2) * 10
+
     return total if skus_list else 0  # returns total amount unless empy
+
 
