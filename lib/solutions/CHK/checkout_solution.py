@@ -3,7 +3,33 @@ from collections import Counter
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    pricing = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10} # keeps track of individual sku pricing
+    
+    # keeps track of individual sku pricing
+    pricing = {"A": 50, 
+               "B": 30, 
+               "C": 20, 
+               "D": 15, 
+               "E": 40, 
+               "F": 10,
+               "G": 20,
+               "H": 10,
+               "I": 35,
+               "J": 60,
+               "K": 80,
+               "L": 90,
+               "M": 15,
+               "N": 40,
+               "O": 10,
+               "P": 50,
+               "Q": 30,
+               "R": 50,
+               "S": 30,
+               "T": 20,
+               "U": 40,
+               "V": 50,
+               "X": 90,
+               "Y": 10,
+               "Z": 50} 
     skus_list = list(skus) # convert string to list
     total = 0 
     
@@ -13,11 +39,21 @@ def checkout(skus):
         else:
             total += pricing[sku]
     
-    # subtract discounts
+    # sku counts to be used for disocunts
     A_count = skus_list.count("A")
     B_count = skus_list.count("B")
     E_count = skus_list.count("E")
     F_count = skus_list.count("F")
+    H_count = skus_list.count("H")
+    K_count = skus_list.count("K")
+    N_count = skus_list.count("N")
+    P_count = skus_list.count("P")
+    Q_count = skus_list.count("Q")
+    R_count = skus_list.count("R")
+    U_count = skus_list.count("U")
+    V_count = skus_list.count("V")
+
+
 
     # subtract A 'discount' 5A for 200
     if A_count >= 5:          
@@ -56,3 +92,4 @@ def checkout(skus):
 # C: 3 == 60
 #D : 1 == 15
 # E: 3 == 120
+
