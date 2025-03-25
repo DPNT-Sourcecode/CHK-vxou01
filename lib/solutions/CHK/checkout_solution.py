@@ -114,7 +114,24 @@ def checkout(skus):
     # subtract P 'discount' 5P for 200
     total -= (P_count // 5) * 50
 
+    # subtract R 'discount' 3R get one Q free
+    if R_count >= 3:
+        free_Qs = R_count // 3 
+        
+        if Q_count < free_Qs:
+            total -= Q_count * pricing["Q"]
+        else:
+            total -= free_Qs * pricing["Q"]
+        
+        # subtract free_Qs 
+        if Q_count > 0:
+            Q_count -= free_Qs
+
+    # subtract U 'discount' 3U for 2
+    total -= (U_count // 3) * 40
+
     return total if skus_list else 0  # returns total amount unless empy
+
 
 
 
