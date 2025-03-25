@@ -15,7 +15,7 @@ def checkout(skus):
                "H": 10,
                "I": 35,
                "J": 60,
-               "K": 80,
+               "K": 70,
                "L": 90,
                "M": 15,
                "N": 40,
@@ -23,14 +23,14 @@ def checkout(skus):
                "P": 50,
                "Q": 30,
                "R": 50,
-               "S": 30,
+               "S": 20,
                "T": 20,
                "U": 40,
                "V": 50,
                "W": 20,
-               "X": 90,
-               "Y": 10,
-               "Z": 50} 
+               "X": 17,
+               "Y": 20,
+               "Z": 21} 
     skus_list = list(skus) # convert string to list
     total = 0 
     
@@ -55,6 +55,9 @@ def checkout(skus):
     R_count = skus_list.count("R")
     U_count = skus_list.count("U")
     V_count = skus_list.count("V")
+    
+    #group discount
+    group_discount_skus = ["S", "T", "X", "Y", "Z"]
 
 
 
@@ -91,8 +94,8 @@ def checkout(skus):
     if H_count >= 5:
         total -= (H_count // 5) * 5
 
-    # subtract K 'discount' 2K for 150
-    total -= (K_count // 2) * 10
+    # subtract K 'discount' 2K for 120
+    total -= (K_count // 2) * 20
 
     # subtract N 'discount' 3N get one M free
     if N_count >= 3:
@@ -121,14 +124,15 @@ def checkout(skus):
     # subtract U 'discount' 4U for 3
     total -= (U_count // 4) * 40
 
-    # subtract V 'discount' 3A for 130
+    # subtract V 'discount' 3V for 130
     if V_count >= 3:          
         total -= (V_count // 3) * 20
         V_count %= 3 #update remaining A count to use 3A discount
 
-    # subtract V 'discount' 2A for 90
+    # subtract V 'discount' 2V for 90
     if V_count >= 2:
         total -= (V_count // 2) * 10
 
     return total if skus_list else 0  # returns total amount unless empy
+
 
