@@ -36,4 +36,3 @@ class TestCHK():
         
     #     with pytest.raises(ValueError, match="Input is out of range"):
     #         sum_solution.compute(101,2)
-

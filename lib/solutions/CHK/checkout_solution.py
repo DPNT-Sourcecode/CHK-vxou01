@@ -33,6 +33,7 @@ def checkout(skus):
     skus_list = list(skus) # convert string to list
     total = 0 
     
+    # add price for each individual sku
     for sku in skus_list:
         if sku not in pricing: # case: illegal input
             return -1
@@ -83,6 +84,15 @@ def checkout(skus):
     # subtract F 'discount' 3F for 2
     total -= (F_count // 3) * 10
 
+    # subtract H 'discount' 10H for 80
+    if A_count >= 5:          
+        total -= (A_count // 5) * 50
+        A_count %= 5 #update remaining A count to use 3A discount
+
+    # subtract H 'discount' 5H for 45
+    if A_count >= 3:
+        total -= (A_count // 3) * 20
+
     return total if skus_list else 0  # returns total amount unless empy
 
 
@@ -92,4 +102,3 @@ def checkout(skus):
 # C: 3 == 60
 #D : 1 == 15
 # E: 3 == 120
-
