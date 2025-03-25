@@ -71,10 +71,15 @@ def checkout(skus):
     if E_count >= 2:
         free_Bs = E_count // 2 
         
-        if B_count < free_Bs:
-            total -= B_count * pricing["B"]
-        else:
-            total -= free_Bs * pricing["B"]
+        if B_count > 0:
+            Bs_to_subtract = min(free_Bs, B_count)
+            total -= Bs_to_subtract * pricing["B"]
+            B_count -= Bs_to_subtract
+        
+        # if B_count < free_Bs:
+        #     total -= B_count * pricing["B"]
+        # else:
+        #     total -= free_Bs * pricing["B"]
         
         # subtract free_Bs so the 2B for 45 discount can be used
         if B_count > 0:
@@ -101,15 +106,11 @@ def checkout(skus):
     # subtract N 'discount' 3N get one M free
     if N_count >= 3:
         free_Ms = N_count // 3 
-        
-        if M_count < free_Ms:
-            total -= M_count * pricing["M"]
-        else:
-            total -= free_Ms * pricing["M"]
-        
-        # subtract free_Ms 
+
         if M_count > 0:
-            M_count -= free_Ms
+            Ms_to_subtract = min(free_Ms, M_count)
+            total -= Ms_to_subtract * pricing["M"]
+            M_count -= Ms_to_subtract
 
     # subtract P 'discount' 5P for 200
     total -= (P_count // 5) * 50
@@ -117,15 +118,11 @@ def checkout(skus):
     # subtract R 'discount' 3R get one Q free
     if R_count >= 3:
         free_Qs = R_count // 3 
-        
-        if Q_count < free_Qs:
-            total -= Q_count * pricing["Q"]
-        else:
-            total -= free_Qs * pricing["Q"]
-        
-        # subtract free_Qs 
+
         if Q_count > 0:
-            Q_count -= free_Qs
+            Qs_to_subtract = min(free_Qs, Q_count)
+            total -= Qs_to_subtract * pricing["Q"]
+            Q_count -= Qs_to_subtract
 
     # subtract Q 'discount' 3Q for 80
     total -= (Q_count // 3) * 10
